@@ -4,8 +4,8 @@ from socket import *
 import time
 import threading
 
-HOST = 'localhost'
-PORT = 12445
+HOST = 'localhost'  #服务器的地址
+PORT = 12445        #服务器的端口
 BUF = 1024
 
 ADDR = (HOST, PORT)

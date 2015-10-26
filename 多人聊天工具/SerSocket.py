@@ -5,8 +5,8 @@ import time
 import threading
 import copy
 
-HOST = 'localhost'
-PORT = 12445
+HOST = 'localhost'  #服务器的地址
+PORT = 12445        #服务器的端口
 BUF = 1024
 WAITTOTAL = 0
 MAXUSERNUM = 5
