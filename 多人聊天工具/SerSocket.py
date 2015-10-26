@@ -11,7 +11,7 @@ BUF = 1024
 WAITTOTAL = 0
 MAXUSERNUM = 5
 CONNECTUSER = 0
-MESSAGEBUFFER = []
+MESSAGEBUFFER = []  #一个由[待发送的用户数，消息缓存]组成的列表
 
 
 #class MyThread(threading.Thread):
@@ -53,13 +53,17 @@ def subSer(SerSocket,userIndex):
         
 def send(CliSocket,userIndex):
     global MESSAGEBUFFER, CONNECTUSER
+    
     while True:
 #        redata = raw_input()
+    
+    #用MESSAGEBUFFER存储消息，如果MESSAGEBUFFER不为空，表示有要发送的消息
         if MESSAGEBUFFER:
 #            print 'current online user total:',CONNECTUSER
             data = MESSAGEBUFFER[0][1]
             CliSocket.send(data)
             MESSAGEBUFFER[0][0] = MESSAGEBUFFER[0][0] - 1
+    #每次执行一次发送，将剩余待发的用户数减一，如果为0，表示全部发送完成，清除当前的消息缓存
             if not MESSAGEBUFFER[0][0]:
                 MESSAGEBUFFER.pop(0)
 #            if redata == 'quit':
