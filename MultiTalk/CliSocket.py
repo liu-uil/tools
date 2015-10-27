@@ -47,6 +47,7 @@ def receive(CliSocket):
 def main():
     CliSocket = socket(AF_INET, SOCK_STREAM)
     CliSocket.connect(ADDR)
+
     print 'Connected to ',ADDR,' now you can input message below and press enter to send!'
 
     Threads = []

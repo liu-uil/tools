@@ -31,6 +31,7 @@ def subSer(SerSocket,userIndex):
         WAITTOTAL = WAITTOTAL+1
         print 'thread %d start waiting at:%s, WAITTOTAL = %d\n'%(userIndex,time.ctime(), WAITTOTAL)
         CliSocket,addr = SerSocket.accept()
+        CliSocket.send('this is the server')
         WAITTOTAL = WAITTOTAL-1
         CONNECTUSER = CONNECTUSER+1
         print 'user %d :connected from %s'%(userIndex,addr)
