@@ -1,0 +1,48 @@
+// ==UserScript==
+// @name        CustomShare
+// @namespace    http://liu-uil.com/
+// @version      0.1
+// @description  try to take over the world!
+// @author       yangliu
+// @match http://*
+// @match https://*
+// @grant        none
+// @require     http://code.jquery.com/jquery-latest.js
+// @include    http:/*
+// @include    https://*
+// ==/UserScript==
+
+// Your code here...
+
+ImportCss();
+Share();
+
+function ImportCss() {
+    var jqueryScriptBlock = document.createElement('style');
+    jqueryScriptBlock.type = 'text/css';
+    jqueryScriptBlock.innerHTML = "#share {position:fixed;bottom:30%;right:1px;border:1px solid gray;padding:3px;width:12px;font-size:12px;cursor:pointer;border-radius: 3px;text-shadow: 1px 1px 3px #676767;}";
+    document.getElementsByTagName('head')[0].appendChild(jqueryScriptBlock);
+}
+
+function Share() {
+     $(document.body).append("<div id='share' >分享</div>");
+         $('#share').click(function () { 
+         var param = {
+         url: window.location.href,
+         title: $("title").text()+'\n\n——转发自自定义分享按钮',
+       };
+     window.open(getLink("http://service.weibo.com/share/share.php?", param));
+      });
+}
+
+function getLink(link, param) {
+    return link + addParam(param).join('&');
+}
+
+function addParam(param) {
+    var temp = [];
+    for (var p in param) {
+        temp.push(p + '=' + encodeURIComponent(param[p] || ''))
+    }
+    return temp;
+}
