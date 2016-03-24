@@ -1,0 +1,5 @@
+#bashrc or bashprofile
+PS1='[\u@haofang \w \t]\$'
+
+#inputrc
+set completion-ignore-case on
