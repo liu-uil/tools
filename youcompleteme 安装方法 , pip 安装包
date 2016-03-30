@@ -1,0 +1,11 @@
+youcompleteme 安装方法
+1. git clone https://github.com/liu-uil/YouCompleteMe
+2. git submodule update --init --recursive
+3. ./install.py
+
+#windows 下升级pip方法
+python -m pip install -U --force-reinstall pip
+
+#windows 下如果报错“Error: Microsoft Visual C++ 10.0 is required (Unable to find vcvarsall.bat)”,可以只装个Microsoft Visual C++ 2010 Express
+#windows 下pip安装软件
+set STATICBUILD=true && pip install lxml

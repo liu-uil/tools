@@ -1,8 +1,0 @@
-youcompleteme 安装方法
-
-1. git clone https://github.com/liu-uil/YouCompleteMe
-2. git submodule update --init --recursive
-3. ./install.py
-
-#windows 下升级pip方法
-python -m pip install -U --force-reinstall pip
